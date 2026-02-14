@@ -1,6 +1,14 @@
 # UCB AIML Repository: Exploratory Data Analysis Projects
 
-This repository contains two data analysis assignments implemented in Jupyter notebooks using Python.
+This repository contains exploratory data analysis work implemented in Jupyter notebooks using Python.
+
+## Latest Changes
+
+- Added `assignment6/censusincome.ipynb` for Adult (Census Income) EDA.
+- Added Adult dataset files in `assignment6/adult_uci/`:
+  - `adult.data`
+  - `adult.test`
+- Added `requirements.txt` to simplify environment setup.
 
 ## Repository Structure
 
@@ -17,8 +25,13 @@ UCB-AIMLrepo/
 │   └── notebook/
 │       └── prompt.ipynb
 ├── assignment6/
+│   ├── adult_uci/
+│   │   ├── adult.data
+│   │   └── adult.test
+│   ├── censusincome.ipynb
 │   ├── titanic.csv
 │   └── titanic_eda.ipynb
+├── requirements.txt
 └── README.md
 ```
 
@@ -44,7 +57,7 @@ UCB-AIMLrepo/
 - Coffee coupon acceptance rate: **49.63%**
 - Visuals exported in `assignment5_1/images/`.
 
-### 2) Assignment 6: Titanic EDA
+### 2) Assignment 6A: Titanic EDA
 - Notebook: `assignment6/titanic_eda.ipynb`
 - Dataset: `assignment6/titanic.csv`
 - Focus: Exploratory analysis of survival patterns.
@@ -70,6 +83,16 @@ UCB-AIMLrepo/
   - Class 3: `0.244`
 - Mid-size families show better survival than solo passengers.
 
+### 3) Assignment 6B: Census Income (Adult) EDA
+- Notebook: `assignment6/censusincome.ipynb`
+- Datasets:
+  - `assignment6/adult_uci/adult.data`
+  - `assignment6/adult_uci/adult.test`
+- Focus:
+  - Cleaning and profiling the Adult income classification dataset.
+  - Categorical and numeric feature analysis.
+  - Relationship analysis for income (`<=50K` vs `>50K`).
+
 ## Important Libraries
 
 The notebooks rely on:
@@ -83,7 +106,7 @@ The notebooks rely on:
 Install with:
 
 ```bash
-pip install pandas numpy matplotlib seaborn jupyter ipython
+pip install -r requirements.txt
 ```
 
 ## How To Run the Code
@@ -98,6 +121,7 @@ jupyter notebook
 Then open and run:
 - `assignment5_1/notebook/prompt.ipynb`
 - `assignment6/titanic_eda.ipynb`
+- `assignment6/censusincome.ipynb`
 
 ### Option B: Run in VS Code Notebook UI
 1. Open repo folder.
@@ -118,6 +142,7 @@ flowchart TD
 
     A1[assignment5_1/data/coupons.csv] --> B1[prompt.ipynb]
     A2[assignment6/titanic.csv] --> B2[titanic_eda.ipynb]
+    A3[assignment6/adult_uci/adult.data and adult.test] --> B3[censusincome.ipynb]
 ```
 
 ### Assignment 5.1 pipeline
@@ -145,6 +170,18 @@ flowchart LR
     F --> G[EDA Findings]
 ```
 
+### Assignment 6B pipeline
+
+```mermaid
+flowchart LR
+    A[adult.data and adult.test] --> B[Load and Parse Columns]
+    B --> C[Clean Missing and Labels]
+    C --> D[Categorical Profiling]
+    D --> E[Numeric Distribution and Outlier Checks]
+    E --> F[Feature Relationship Analysis]
+    F --> G[Income Insights]
+```
+
 ## Notes
 - `assignment5_1/README.md` is project-specific and includes embedded figures.
-- This root README summarizes both projects and how to execute them end-to-end.
+- This root README summarizes all notebooks and how to execute them end-to-end.
